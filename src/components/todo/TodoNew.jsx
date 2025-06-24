@@ -1,9 +1,12 @@
 
-const TodoNew = () => {
+const TodoNew = (props) => {
+    console.log('check props>>> ', props);
+
+    const { addNewTodo } = props;
     return (
         <div>
             <input type="text" placeholder='Enter your task' />
-            <button>Add</button>
+            <button onClick={addNewTodo}>Add</button>
         </div>
     )
 }
