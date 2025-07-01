@@ -1,12 +1,27 @@
+import { useState } from "react";
 
 const TodoNew = (props) => {
-    console.log('check props>>> ', props);
 
     const { addNewTodo } = props;
+
+    //useState hook
+    // const valueInput = "thuan"; - js
+    const [valueInput, setValueInput] = useState("thuan");
+
+    const handleOnClick = () => {
+        alert(valueInput);
+    }
+
+    const handleOnChange = (name) => {
+        setValueInput(name);
+    }
     return (
         <div>
-            <input type="text" placeholder='Enter your task' />
-            <button onClick={addNewTodo}>Add</button>
+            <input type="text" placeholder='Enter your task' onChange={(event) => handleOnChange(event.target.value)} />
+            <button onClick={handleOnClick}>Add</button>
+            <div>
+                My text input is = {valueInput}
+            </div>
         </div>
     )
 }
