@@ -9,7 +9,7 @@ const TodoNew = (props) => {
     const [valueInput, setValueInput] = useState("thuan");
 
     const handleOnClick = () => {
-        alert(valueInput);
+        addNewTodo(valueInput);
     }
 
     const handleOnChange = (name) => {
