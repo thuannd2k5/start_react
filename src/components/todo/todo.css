@@ -57,7 +57,7 @@ button:hover {
 
 /* Logo styles */
 .logo {
-    width: 200px;
+    width: 100px;
     /* hoặc to hơn như 300px */
     height: auto !important;
     /* Ghi đè mọi giá trị height */

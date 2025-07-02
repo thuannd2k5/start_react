@@ -30,12 +30,26 @@ const App = () => {
       <TodoNew
         addNewTodo={addNewTodo}
       />
-      <TodoList
-        todoList={todoList}
-      />
-      <div className='todo-image'>
-        <img src={reactLogo} className='logo' />
-      </div>
+
+      {todoList.length > 0 ?
+        <TodoList
+          todoList={todoList}
+        />
+        :
+        <div className='todo-image'>
+          <img src={reactLogo} className='logo' />
+        </div>
+      }
+      {/* {todoList.length > 0 &&
+        <TodoList
+          todoList={todoList}
+        />
+      }
+      {todoList.length === 0 &&
+        <div className='todo-image'>
+          <img src={reactLogo} className='logo' />
+        </div>
+      } */}
     </div>
   )
 }
