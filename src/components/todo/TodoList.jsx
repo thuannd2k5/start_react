@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 const TodoList = (props) => {
 
-    const { todoList } = props;
-    console.log('check props>>> ', todoList);
+    const { todoList, deleteTodo } = props;
+
+    const handleOnClickDelete = (todoId) => {
+        deleteTodo(todoId);
+    }
     return (
         <div className='todo-list'>
 
@@ -10,7 +15,7 @@ const TodoList = (props) => {
                 return (
                     <div className="todo-item" key={item.id}>
                         <div>{item.name}</div>
-                        <button>delete</button>
+                        <button onClick={() => handleOnClickDelete(item.id)}>delete</button>
                     </div>
                 )
             })}
