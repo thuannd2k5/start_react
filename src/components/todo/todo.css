@@ -12,15 +12,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-input[type="text"] {
-    width: 240px;
-    height: 32px;
-    font-size: 16px;
-    padding: 5px 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    outline: none;
-}
 
 button {
     width: 110px;
