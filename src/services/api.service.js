@@ -12,7 +12,14 @@ const createUserAPI = (fullName, email, password, phone) => {
 
 }
 
-const updateUserAPI = () => {
+const updateUserAPI = (id, userId, title) => {
+    const URL_BACKEND = "/todos";
+    const data = {
+        id: id,
+        userId: userId,
+        title: title
+    }
+    return axios.put(URL_BACKEND, data);
 
 }
 
