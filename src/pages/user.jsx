@@ -8,7 +8,6 @@ const UserPage = () => {
     const [dataUsers, setDataUsers] = useState([]);
 
     useEffect(() => {
-        console.log(">>> run useEffect 111")
         loadUser();
     }, []); // empty array =>run once
 
