@@ -11,7 +11,7 @@ const UpdateUserModal = (props) => {
     // const [handleOk,setHandleOk] = useState(false);
 
     useEffect(() => {
-        console.log("check dataUpdate props :", dataUpdate);
+        // console.log("check dataUpdate props :", dataUpdate);
         if (dataUpdate) {
             setId(dataUpdate.id);
             setUserId(dataUpdate.userId);
