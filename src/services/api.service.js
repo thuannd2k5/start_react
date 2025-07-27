@@ -28,8 +28,9 @@ const deleteUserAPI = (id) => {
 
 }
 
-const fetchAllUserAPI = () => {
-    const URL_BACKEND = "/todos";
+const fetchAllUserAPI = (current, pageSize) => {
+    const URL_BACKEND = `/todos?current=${current}&pageSize=${pageSize}`;
+    // const URL_BACKEND = `/todos`;
     return axios.get(URL_BACKEND);
 }
 
