@@ -70,8 +70,19 @@ const registerUserAPI = (fullName, email, password, phone) => {
     return axios.post(URL_BACKEND, data);
 
 }
+const loginAPI = (email, password) => {
+    const URL_BACKEND = "/todos";
+    const data = {
+        email: email,
+        password: password,
+        delay: 2000
+    }
+    return axios.post(URL_BACKEND, data);
+
+}
+
 
 export {
     createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI,
-    handleUploadFile, updateAvatarAPI, registerUserAPI
+    handleUploadFile, updateAvatarAPI, registerUserAPI, loginAPI
 }
