@@ -19,7 +19,7 @@ const LoginPage = () => {
         const res = await loginAPI(values.email, values.password)
         if (res.data) {
             message.success("Đăng nhập thành công")
-            localStorage.Item("access_token", res.data.access_token);
+            localStorage.setItem("access_token", res.data.access_token);
             setUser(res.data.user);
             navigate("/")
         } else {
