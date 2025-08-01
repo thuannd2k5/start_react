@@ -84,11 +84,17 @@ const loginAPI = (email, password) => {
 const getAccountAPI = () => {
     const URL_BACKEND = "/todos";
 
+    return axios.get(URL_BACKEND);
+}
+
+const logoutAPI = () => {
+    const URL_BACKEND = "/todos";
+
     return axios.post(URL_BACKEND);
 }
 
 
 export {
     createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI,
-    handleUploadFile, updateAvatarAPI, registerUserAPI, loginAPI, getAccountAPI
+    handleUploadFile, updateAvatarAPI, registerUserAPI, loginAPI, getAccountAPI, logoutAPI
 }

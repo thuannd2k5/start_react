@@ -1,23 +1,40 @@
-import { Menu } from 'antd';
+import { Menu, message } from 'antd';
 import {
     UsergroupAddOutlined, HomeOutlined, BookOutlined, SettingOutlined,
     LoginOutlined,
     AliwangwangOutlined
 } from '@ant-design/icons';
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import { logoutAPI } from '../../services/api.service';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [current, setCurrent] = useState('');
     const onClick = (e) => {
         setCurrent(e.key);
     };
 
+    const handleLogout = async () => {
+        const res = await logoutAPI();
+        if (res.data) {
+            //clear data
+            localStorage.removeItem("access_token");
+            setUser({
+                id: "",
+                userId: "",
+                title: ""
+            })
 
+            message.success("logout thành công");
+            // redirect to home
+            navigate("/")
+        }
+    }
 
     const items = [
         {
@@ -46,17 +63,17 @@ const Header = () => {
         //     icon: <LoginOutlined />,
         // }] : []),
 
-        // ...(user.id ? [{
-        //     label: `Welcome ${user.fullName}`,
-        //     key: 'setting',
-        //     icon: <AliwangwangOutlined />,
-        //     children: [
-        //         {
-        //             label: 'Đăng xuất',
-        //             key: 'logout'
-        //         }
-        //     ],
-        // }] : []),
+        {
+            label: `Welcome`,
+            key: 'setting',
+            icon: <AliwangwangOutlined />,
+            children: [
+                {
+                    label: <span onClick={handleLogout}>Đăng xuất</span>,
+                    key: 'logout'
+                }
+            ],
+        }
     ];
 
     return (
