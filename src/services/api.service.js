@@ -75,14 +75,20 @@ const loginAPI = (email, password) => {
     const data = {
         email: email,
         password: password,
-        delay: 2000
+        delay: 5000
     }
     return axios.post(URL_BACKEND, data);
 
 }
 
+const getAccountAPI = () => {
+    const URL_BACKEND = "/todos";
+
+    return axios.post(URL_BACKEND);
+}
+
 
 export {
     createUserAPI, updateUserAPI, fetchAllUserAPI, deleteUserAPI,
-    handleUploadFile, updateAvatarAPI, registerUserAPI, loginAPI
+    handleUploadFile, updateAvatarAPI, registerUserAPI, loginAPI, getAccountAPI
 }
